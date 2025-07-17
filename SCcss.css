@@ -1,0 +1,87 @@
+:root {
+    --background: #ffe6f2;
+    --background-select: #f9dbe7;
+    --font-color: #333;
+    --accent-color: #ff80bf;
+}
+
+body {
+    display: grid;
+    place-content: center;
+    min-height: 100vh;
+    background: var(--background);
+    color: var(--font-color);
+    font-family: "Arial", sans-serif;
+}
+
+select {
+    appearance: none;
+    border: 2px solid var(--accent-color);
+    background: var(--background-select);
+    color: var(--font-color);
+    font-family: inherit;
+    padding: 0.5em 1em;
+}
+
+.select {
+    position: relative;
+    display: flex;
+    width: min(20rem, 90vw);
+    background: var(--background-select);
+    border-radius: 0.25rem;
+    overflow: hidden;
+}
+
+.select select {
+    flex: 1;
+    cursor: pointer;
+}
+
+.select::after {
+    content: "\25BC";
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent-color);
+}
+
+.select:hover::after {
+    animation: bounce 0.5s infinite;
+}
+
+@keyframes bounce {
+    25% {
+        transform: translateY(5px);
+    }
+    75% {
+        transform: translateY(-5px);
+    }
+}
+
+.inputs label {
+    display: inline-block;
+    width: 100px;
+    margin-right: 10px;
+}
+
+.inputs input {
+    width: calc(100% - 200px);
+    border: 2px solid var(--accent-color);
+    padding: 0.5em 1em;
+    font-family: inherit;
+    color: var(--font-color);
+    background: var(--background-select);
+}
+
+button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 0.5em 1em;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff66a3;
+}
